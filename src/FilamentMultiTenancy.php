@@ -2,4 +2,7 @@
 
 namespace Robiokidenis\FilamentMultiTenancy;
 
-class FilamentMultiTenancy {}
+class FilamentMultiTenancy {
+
+    
+}
