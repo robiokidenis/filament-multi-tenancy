@@ -2,9 +2,9 @@
 
 namespace Robiokidenis\FilamentMultiTenancy;
 
+use Robiokidenis\FilamentMultiTenancy\Commands\FilamentMultiTenancyCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Robiokidenis\FilamentMultiTenancy\Commands\FilamentMultiTenancyCommand;
 
 class FilamentMultiTenancyServiceProvider extends PackageServiceProvider
 {
