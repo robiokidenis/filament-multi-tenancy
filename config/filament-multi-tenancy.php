@@ -16,7 +16,7 @@ return [
         'tenant_foreign_key' => 'tenant_id',
         'user_foreign_key' => 'user_id',
     ],
-    
+
     'tenant_select' => [
         'column' => 'tenant_id',
         'relationship' => 'tenant',
