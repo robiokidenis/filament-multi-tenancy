@@ -13,24 +13,24 @@ class TenantMiddleware
     {
         $user = Auth::user();
 
-        if (!$user) {
+        if (! $user) {
             return redirect()->route('login');
         }
 
         $tenant = $this->resolveTenant($request);
 
-        if (!$tenant) {
+        if (! $tenant) {
             abort(404, 'Tenant not found.');
         }
 
-        if (!$user->tenants->contains($tenant)) {
+        if (! $user->tenants->contains($tenant)) {
             abort(403, 'You do not have access to this tenant.');
         }
 
         $user->setCurrentTenant($tenant);
-        
+
         $request->merge(['tenant' => $tenant]);
-        
+
         return $next($request);
     }
 
@@ -45,6 +45,7 @@ class TenantMiddleware
 
         // If not found in route, try to resolve from the subdomain
         $subdomain = explode('.', $request->getHost())[0];
+
         return Tenant::where('slug', $subdomain)->first();
     }
 }

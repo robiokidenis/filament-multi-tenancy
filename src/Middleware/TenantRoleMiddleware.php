@@ -3,9 +3,9 @@
 namespace Robiokidenis\FilamentMultiTenancy\Middleware;
 
 use Closure;
+use Filament\Facades\Filament;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Filament\Facades\Filament;
 
 class TenantRoleMiddleware
 {
@@ -28,8 +28,6 @@ class TenantRoleMiddleware
 
     /**
      * Get the current Permissions team ID.
-     *
-     * @return int|null
      */
     protected function getPermissionsTeamId(): ?int
     {
@@ -38,9 +36,6 @@ class TenantRoleMiddleware
 
     /**
      * Set the Permissions team ID.
-     *
-     * @param int $teamId
-     * @return void
      */
     protected function setPermissionsTeamId(int $teamId): void
     {
