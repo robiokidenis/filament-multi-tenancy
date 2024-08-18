@@ -11,11 +11,11 @@ return new class extends Migration
     public function up()
     {
 
-        $tableNames = Config::get('multi-tenancy.table_names');
-        $columnNames = Config::get('multi-tenancy.column_names');
+        $tableNames = Config::get('filament-multi-tenancy.table_names');
+        $columnNames = Config::get('filament-multi-tenancy.column_names');
 
         if (empty($tableNames)) {
-            throw new \Exception('Error: config/multi-tenancy.php not loaded. Run [php artisan config:clear] and try again.');
+            throw new \Exception('Error: config/filament-multi-tenancy.php not loaded. Run [php artisan config:clear] and try again.');
         }
 
         Schema::create($tableNames['tenants'], function (Blueprint $table) use ($columnNames) {
@@ -58,10 +58,10 @@ return new class extends Migration
 
     public function down()
     {
-        $tableNames = Config::get('multi-tenancy.table_names');
+        $tableNames = Config::get('filament-multi-tenancy.table_names');
 
         if (empty($tableNames)) {
-            throw new \Exception('Error: config/multi-tenancy.php not found and defaults could not be merged. Please publish the package configuration before proceeding, or drop the tables manually.');
+            throw new \Exception('Error: config/filament-multi-tenancy.php not found and defaults could not be merged. Please publish the package configuration before proceeding, or drop the tables manually.');
         }
 
         Schema::dropIfExists($tableNames['tenant_invitations']);
