@@ -19,7 +19,7 @@ class FilamentMultiTenancyServiceProvider extends PackageServiceProvider
             ->name('filament-multi-tenancy')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_filament_multi_tenancy_table')
-            ->hasCommand(FilamentMultiTenancyCommand::class);
+            ->hasMigration('create_filament_multi_tenancy_table');
+        // ->hasCommand(FilamentMultiTenancyCommand::class)
     }
 }
