@@ -8,13 +8,14 @@ use Robiokidenis\FilamentMultiTenancy\Helpers\TenantHelper;
 
 trait HasTenantScope
 {
-    public static function bootBelongsToTenant()
+    public static function bootHasTenantScope()
     {
+
         static::addGlobalScope('tenant', function (Builder $query) {
             TenantHelper::scopeToTenant($query);
         });
 
-        static::saving(function (Model $model) {
+        static::creating(function (Model $model) {
             TenantHelper::setTenantIdOnModel($model);
         });
     }

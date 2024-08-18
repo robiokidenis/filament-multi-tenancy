@@ -94,8 +94,10 @@ class TenantHelper
     public static function setTenantIdOnModel(Model $model): void
     {
         $tenantForeignKey = self::getTenantForeignKey();
+        
         if (! $model->{$tenantForeignKey} && ($tenantId = self::getCurrentTenantId())) {
             $model->{$tenantForeignKey} = $tenantId;
+           
         }
     }
 }
