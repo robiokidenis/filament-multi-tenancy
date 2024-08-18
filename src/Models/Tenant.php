@@ -39,10 +39,10 @@ class Tenant extends Model
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(
-            config('multi-tenancy.user_model'),
-            config('multi-tenancy.table_names.tenant_user'),
-            config('multi-tenancy.column_names.tenant_foreign_key'),
-            config('multi-tenancy.column_names.user_foreign_key')
+            config('filament-multi-tenancy.user_model'),
+            config('filament-multi-tenancy.table_names.tenant_user'),
+            config('filament-multi-tenancy.column_names.tenant_foreign_key'),
+            config('filament-multi-tenancy.column_names.user_foreign_key')
         )->withTimestamps();
     }
 

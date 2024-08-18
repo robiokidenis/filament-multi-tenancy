@@ -22,6 +22,5 @@ class FilamentMultiTenancyServiceProvider extends PackageServiceProvider
             ->hasMigration('create_filament_multi_tenancy_table');
         // ->hasCommand(FilamentMultiTenancyCommand::class)
 
-        $this->app->bind('filament-multi-tenancy.tenant', Tenant::class);
     }
 }

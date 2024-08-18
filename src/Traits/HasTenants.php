@@ -2,11 +2,21 @@
 
 namespace Robiokidenis\FilamentMultiTenancy\Traits;
 
+use Filament\Panel;
+use Illuminate\Support\Collection;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Robiokidenis\FilamentMultiTenancy\Models\Tenant;
 
 trait HasTenants
 {
+
+    public function canAccessTenant(Model $tenant): bool
+    {
+        return $this->tenants->contains($tenant);
+    }
+
+
     public function tenants(): BelongsToMany
     {
         return $this->belongsToMany(
@@ -16,6 +26,14 @@ trait HasTenants
             config('multi-tenancy.column_names.tenant_foreign_key')
         )->withTimestamps();
     }
+
+
+
+    public function getTenants(Panel $panel): Collection
+    {
+        return $this->tenants;
+    }
+
 
     public function ownedTenants()
     {
