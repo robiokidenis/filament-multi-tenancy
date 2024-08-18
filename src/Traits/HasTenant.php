@@ -2,8 +2,8 @@
 
 namespace Robiokidenis\FilamentMultiTenancy\Traits;
 
-use Robiokidenis\FilamentMultiTenancy\Models\Tenant;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Robiokidenis\FilamentMultiTenancy\Models\Tenant;
 
 trait HasTenants
 {

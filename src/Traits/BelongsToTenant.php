@@ -12,7 +12,7 @@ trait BelongsToTenant
     public static function bootBelongsToTenant()
     {
         static::creating(function (Model $model) {
-            if (!$model->getAttribute(self::getTenantForeignKey()) && self::getTenant()) {
+            if (! $model->getAttribute(self::getTenantForeignKey()) && self::getTenant()) {
                 $model->setAttribute(self::getTenantForeignKey(), self::getTenant()->id);
             }
         });
@@ -32,7 +32,7 @@ trait BelongsToTenant
         if (Auth::check()) {
             return Auth::user()->currentTenant;
         }
-        
+
         return null;
     }
 
