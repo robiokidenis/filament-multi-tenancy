@@ -1,5 +1,6 @@
 {
     "name": "robiokidenis/filament-multi-tenancy",
+    "version": "0.1.0",
     "description": "A robust Laravel package that adds multi-tenancy support to Filament admin panel, seamlessly integrated with Spatie's Laravel Permission package. This package allows you to create and manage multiple tenants within a single Filament application, each with its own set of users, roles, and permissions.",
     "keywords": [
         "robiokidenis",
