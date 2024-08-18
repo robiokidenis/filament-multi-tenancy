@@ -5,10 +5,11 @@ namespace Robiokidenis\FilamentMultiTenancy\Traits;
 use Filament\Panel;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Robiokidenis\FilamentMultiTenancy\Models\Tenant;
 
-trait HasTenants
+trait ManagesTenants
 {
 
     public function canAccessTenant(Model $tenant): bool
@@ -40,14 +41,5 @@ trait HasTenants
         return $this->hasMany(Tenant::class, 'user_id');
     }
 
-    public function currentTenant(): BelongsTo
-    {
-        return $this->belongsTo(Tenant::class, 'current_tenant_id');
-    }
-
-    public function setCurrentTenant(Tenant $tenant)
-    {
-        $this->current_tenant_id = $tenant->id;
-        $this->save();
-    }
+ 
 }
