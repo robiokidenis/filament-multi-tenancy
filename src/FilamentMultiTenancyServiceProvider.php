@@ -2,7 +2,7 @@
 
 namespace Robiokidenis\FilamentMultiTenancy;
 
-use Robiokidenis\FilamentMultiTenancy\Commands\FilamentMultiTenancyCommand;
+use Illuminate\Database\Schema\Blueprint;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -19,8 +19,21 @@ class FilamentMultiTenancyServiceProvider extends PackageServiceProvider
             ->name('filament-multi-tenancy')
             ->hasConfigFile()
             ->hasViews()
+            // ->hasRoute('socialite')
             ->hasMigration('create_filament_multi_tenancy_table');
         // ->hasCommand(FilamentMultiTenancyCommand::class)
 
+    }
+
+
+    public function boot()
+    {
+        parent::boot();
+
+        Blueprint::macro('userTracking', function () {
+            $this->foreignId('created_by')->nullable()->constrained('users')->onDelete('set null');
+            $this->foreignId('updated_by')->nullable()->constrained('users')->onDelete('set null');
+            $this->foreignId('deleted_by')->nullable()->constrained('users')->onDelete('set null');
+        });
     }
 }
