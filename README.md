@@ -1,3 +1,9 @@
+# Filament Multi-Tenancy
+
+> **Note:** This package is currently under development. Please wait for the official release. Stay tuned for updates!
+
+This package provides multi-tenancy support for Filament Admin in Laravel applications. It simplifies tenant management and integrates seamlessly with Filament's UI components.
+
 # A robust Laravel package that adds multi-tenancy support to Filament admin panel, seamlessly integrated with Spatie's Laravel Permission package. This package allows you to create and manage multiple tenants within a single Filament application, each with its own set of users, roles, and permissions.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/robiokidenis/filament-multi-tenancy.svg?style=flat-square)](https://packagist.org/packages/robiokidenis/filament-multi-tenancy)
@@ -76,8 +82,8 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [robiokidenis](https://github.com/robiokidenis)
-- [All Contributors](../../contributors)
+-   [robiokidenis](https://github.com/robiokidenis)
+-   [All Contributors](../../contributors)
 
 ## License
 
