@@ -28,11 +28,4 @@ trait UserTracking
             }
         });
     }
-
-    public function initializeUserTracking()
-    {
-        $this->fillable[] = 'created_by';
-        $this->fillable[] = 'updated_by';
-        $this->fillable[] = 'deleted_by';
-    }
 }
