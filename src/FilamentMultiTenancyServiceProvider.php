@@ -25,7 +25,6 @@ class FilamentMultiTenancyServiceProvider extends PackageServiceProvider
 
     }
 
-
     public function boot()
     {
         parent::boot();
