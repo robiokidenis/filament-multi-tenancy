@@ -34,5 +34,9 @@ class FilamentMultiTenancyServiceProvider extends PackageServiceProvider
             $this->foreignId('updated_by')->nullable()->constrained('users')->onDelete('set null');
             $this->foreignId('deleted_by')->nullable()->constrained('users')->onDelete('set null');
         });
+
+        Blueprint::macro('hasTenant', function () {
+            $this->foreignId(config('filament-multi-tenancy.column_names.tenant_foreign_key', 'tenant_id'))->constrained()->cascadeOnDelete();
+        });
     }
 }
