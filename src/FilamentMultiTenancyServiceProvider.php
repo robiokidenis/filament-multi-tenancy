@@ -37,7 +37,7 @@ class FilamentMultiTenancyServiceProvider extends PackageServiceProvider
             $tenantColumn = config('filament-multi-tenancy.column_names.tenant_foreign_key', 'tenant_id');
             $indexName = $indexName ?? "unique_{$tenantColumn}_{$column}";
             $this->unique([$tenantColumn, $column], $indexName);
-            
+
             return $this;
         });
 
@@ -46,20 +46,20 @@ class FilamentMultiTenancyServiceProvider extends PackageServiceProvider
             $table = $parameters[0] ?? null;
             $idColumn = $parameters[1] ?? 'id';
             $ignoreId = $parameters[2] ?? null;
-            
-            if (!$table) {
+
+            if (! $table) {
                 return false;
             }
 
             $tenantColumn = config('filament-multi-tenancy.column_names.tenant_foreign_key', 'tenant_id');
             $tenantId = tenant($tenantColumn);
-            
+
             $query = \DB::table($table)->where($attribute, $value)->where($tenantColumn, $tenantId);
-            
+
             if ($ignoreId) {
                 $query->where($idColumn, '!=', $ignoreId);
             }
-            
+
             return $query->count() === 0;
         });
     }
