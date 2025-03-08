@@ -8,7 +8,7 @@ update-composer:
 
 
 # Create a new tag
-tag: update-composer
+tag: 
 	git tag $(NEW_VERSION)
 	git push origin $(NEW_VERSION)
 
