@@ -2,6 +2,10 @@
 
 All notable changes to `filament-multi-tenancy` will be documented in this file.
 
+## v0.1.2 - 2025-03-08
+
+**Full Changelog**: https://github.com/robiokidenis/filament-multi-tenancy/compare/v0.1.1...v0.1.2
+
 ## v0.1.3 - 2025-03-08
 
 ### What's Changed
